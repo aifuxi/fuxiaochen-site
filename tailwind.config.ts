@@ -1,4 +1,3 @@
-
 import { type Config } from 'tailwindcss';
 
 export default {
@@ -10,10 +9,15 @@ export default {
     './src/**/*.{ts,tsx}',
   ],
   theme: {
-    
+    keyframes: {
+      'cursor-blink': {
+        '50%': { borderColor: 'transparent' },
+      },
+    },
+    animation: {
+      // 光标闪烁动画
+      'cursor-blink': 'cursor-blink 0.6s step-end infinite alternate',
+    },
   },
-  plugins: [
-    require('@tailwindcss/typography'),
-
-  ],
+  plugins: [require('@tailwindcss/typography')],
 } satisfies Config;

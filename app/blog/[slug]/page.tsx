@@ -8,6 +8,7 @@ import { env } from '@/libs/env.mjs';
 
 import { type Post, type ResponseStruct } from '@/types';
 
+import Back from './back';
 import PostViewer from './post-viewer';
 
 export async function generateMetadata({
@@ -70,6 +71,7 @@ export default async function Page({
       <div className="flex flex-row">
         {post.tags?.map((el) => <PostTag key={el.id} tag={el} />)}
       </div>
+      <Back />
     </div>
   );
 }
