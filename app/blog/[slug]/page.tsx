@@ -52,22 +52,27 @@ export default async function Page({
 
   return (
     <div className="flex flex-col">
-      {post.cover && (
-        <img
-          src={post.cover}
-          alt={post.title}
-          className="max-w-[65ch] h-auto mb-16"
-        />
-      )}
-      <h1 className="mb-4 text-4xl font-extrabold text-white ">{post.title}</h1>
-      <div className="text-white text-sm flex flex-row items-center">
-        <div>{post.author}</div>
-        <span className="mx-2">·</span>
-        <span className="text-slate-400">
-          {format(parseISO(post.createdAt), 'MMMM dd, yyyy')}
-        </span>
-      </div>
-      <PostViewer body={post.body || ''} />
+      <article className="prose prose-slate w-full dark:prose-invert">
+        {post.cover && (
+          <img
+            src={post.cover}
+            alt={post.title}
+            className="max-w-[65ch] h-auto mb-16"
+          />
+        )}
+        <h1 className="mb-4 text-4xl font-extrabold text-white ">
+          {post.title}
+        </h1>
+        <div className="text-white text-sm flex flex-row items-center">
+          <div>{post.author}</div>
+          <span className="mx-2">·</span>
+          <span className="text-slate-400">
+            {format(parseISO(post.createdAt), 'MMMM dd, yyyy')}
+          </span>
+        </div>
+        <PostViewer body={post.body || ''} />
+      </article>
+
       <div className="flex flex-row">
         {post.tags?.map((el) => <PostTag key={el.id} tag={el} />)}
       </div>
