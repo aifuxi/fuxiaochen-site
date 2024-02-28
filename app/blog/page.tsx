@@ -1,5 +1,6 @@
 import React from 'react';
 
+import { type Metadata } from 'next';
 import Link from 'next/link';
 
 import { format, parseISO } from 'date-fns';
@@ -8,6 +9,10 @@ import { env } from '@/libs/env.mjs';
 
 import { type Post, type ResponseTotalStruct } from '@/types';
 
+export const metadata: Metadata = {
+  title: 'Blog',
+};
+
 export default async function Page() {
   const res = await fetch(`${env.BASE_URL}/posts`);
   const data = (await res.json()) as ResponseTotalStruct<Post[]>;
@@ -15,7 +20,7 @@ export default async function Page() {
   const posts = data.data || [];
 
   return (
-    <section className="max-w-screen-md mx-auto">
+    <section className="max-w-screen-md w-full">
       <div className="flex flex-col justify-center gap-5">
         <p className="text-4xl md:text-5xl leading-[1.125] font-bold tracking-tight">
           Blog
@@ -32,7 +37,7 @@ export default async function Page() {
                 </div>
                 <div className="flex items-center p-6 pt-0">
                   <span className="text-sm text-slate-350">
-                    {el.author} ·{' '}
+                    {el.author}&nbsp;·&nbsp;
                     {format(parseISO(el.createdAt), 'MMMM dd, yyyy')}
                   </span>
                 </div>

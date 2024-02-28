@@ -22,6 +22,7 @@ const config = {
     '@/libs/(.*)',
     '@/utils/(.*)',
     '@/constants/(.*)',
+    '^bytemd',
     '@/.*',
     '^./(.*)',
     '^../(.*)',

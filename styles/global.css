@@ -1,3 +1,7 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+.markdown-body {
+  @apply prose prose-slate w-full dark:prose-invert;
+}
