@@ -68,6 +68,11 @@ export default function RootLayout({
           </div>
         </nav>
         {children}
+        <footer className="flex flex-col items-center justify-center gap-2 px-4 text-slate-400">
+          <p>
+            © {new Date().getFullYear()} {NICKNAME}
+          </p>
+        </footer>
       </body>
     </html>
   );
