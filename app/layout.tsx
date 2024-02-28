@@ -2,7 +2,9 @@ import type { Metadata } from 'next';
 import Image from 'next/image';
 import Link from 'next/link';
 
-import { NICKNAME, SLOGAN } from '@/constants/info';
+import { SolarLetterBoldDuotone, UimGithubAlt } from '@/components/icons';
+
+import { EMAIL, GITHUB_PAGE, NICKNAME, SLOGAN } from '@/constants/info';
 
 import 'bytemd/dist/index.css';
 
@@ -69,6 +71,21 @@ export default function RootLayout({
         </nav>
         {children}
         <footer className="flex flex-col items-center justify-center gap-2 px-4 text-slate-400 py-9">
+          <div className="flex flex-row gap-4 flex-wrap justify-center items-center">
+            <Link
+              className="hover:text-slate-50 transition-colors"
+              href={GITHUB_PAGE}
+              target="_blank"
+            >
+              <UimGithubAlt className="text-2xl" />
+            </Link>
+            <Link
+              className="hover:text-slate-50 transition-colors"
+              href={`mailto:${EMAIL}`}
+            >
+              <SolarLetterBoldDuotone className="text-2xl" />
+            </Link>
+          </div>
           <p>
             © {new Date().getFullYear()} • {NICKNAME}
           </p>
